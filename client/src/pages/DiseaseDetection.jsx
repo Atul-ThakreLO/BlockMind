@@ -3,8 +3,10 @@ import ImageUpload from "@/components/Disease Detection/ImageUpload";
 import Footer from "@/components/Footer";
 import { Leaf } from "lucide-react";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const DiseaseDetection = () => {
+  const { data } = useSelector((state) => state.diseaseData);
   return (
     <div className=" mt-14 md:mt-10">
       <div className="text-center py-8 bg-gradient-to-b from-primary-foreground/40 to-white">
@@ -20,6 +22,14 @@ const DiseaseDetection = () => {
         </p>
       </div>
       <ImageUpload />
+      {!data ? (
+        ""
+      ) : (
+        <p className="text-2xl md:text-4xl capitalize text-primary my-5">
+          Disease Name:
+          {data}
+        </p>
+      )}
       <div className="px-2">
         <BestTipsForUpload />
       </div>
