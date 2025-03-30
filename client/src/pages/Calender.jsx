@@ -68,7 +68,7 @@ const MyCalendar = () => {
   // const { data, isLoading, isFetched } = useGetEvents();
 
   useEffect(() => {
-    const modified = data.map((event) => ({
+    const modified = data?.map((event) => ({
       color: event.color,
       title: event.process,
       start: moment(event.start).toDate(),
