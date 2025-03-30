@@ -17,7 +17,7 @@ export const useGetEvents = () => {
   return useMutation({
     mutationFn: (data) =>
       api_methods.postRequest(
-        "http://192.168.70.35:5001/schedule_calendar",
+        "http://192.168.12.23:5001/schedule_calendar",
         data
       ),
     onSuccess: (data) => {
