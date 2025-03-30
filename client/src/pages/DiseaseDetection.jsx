@@ -1,4 +1,5 @@
 import BestTipsForUpload from "@/components/Disease Detection/BestTipsForUpload";
+import DiseaseResponse from "@/components/Disease Detection/DiseaseREsponse";
 import ImageUpload from "@/components/Disease Detection/ImageUpload";
 import Footer from "@/components/Footer";
 import { Leaf } from "lucide-react";
@@ -19,7 +20,10 @@ const DiseaseDetection = () => {
           accuracy.
         </p>
       </div>
-      <ImageUpload />
+      <div className="flex flex-col md:flex-row px-6">
+        <ImageUpload />
+        <DiseaseResponse />
+      </div>
       <div className="px-2">
         <BestTipsForUpload />
       </div>

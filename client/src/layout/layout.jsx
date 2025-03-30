@@ -13,7 +13,7 @@ const Layout = () => {
     <SidebarProvider>
       <AppSideBar />
       <SidebarInset>
-        <div className="fixed top-0 flex w-full justify-between px-2 py-2 bg-white">
+        <div className="fixed top-0 flex w-full justify-between px-2 py-2 bg-white z-10">
           <div className="flex gap-2 md:hidden text-primary">
             <Sprout size={40} />
             <h1 className="text-3xl font-semibold">CropMind</h1>

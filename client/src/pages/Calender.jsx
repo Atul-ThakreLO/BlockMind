@@ -61,12 +61,14 @@ const MyCalendar = () => {
 
   // const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([]);
-  const { data } = useSelector((state) => state.eventData);
+  // const { data } = useSelector((state) => state.eventData);
+  const { user } = useSelector((state) => state.auth);
+  const data = localStorage.getItem(user.email);
 
   // const { data, isLoading, isFetched } = useGetEvents();
 
   useEffect(() => {
-    const modified = data.map((event) => ({
+    const modified = data?.map((event) => ({
       color: event.color,
       title: event.process,
       start: moment(event.start).toDate(),
