@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import api_methods from "../lib/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setEventData } from "@/Redux/Slices/eventsDataSlice";
 
 // export const useGetEvents = () => {
@@ -13,6 +13,7 @@ import { setEventData } from "@/Redux/Slices/eventsDataSlice";
 // };
 
 export const useGetEvents = () => {
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   return useMutation({
     mutationFn: (data) =>
@@ -22,6 +23,7 @@ export const useGetEvents = () => {
       ),
     onSuccess: (data) => {
       dispatch(setEventData(data.data.schedule));
+      localStorage.setItem(user.email, data.data.schedule);
       console.log(data.data.schedule);
     },
   });
